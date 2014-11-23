@@ -3,6 +3,6 @@
 module.exports.hello = function(name: string): string {
     return 'Hello, ' + name + '!';
 };
-if(window.console) {
+if(window && window.console) {
     window.console.log(module.exports.hello('world'));
 }
