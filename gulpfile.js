@@ -22,19 +22,28 @@ var paths = {
     scriptInit: 'init.js',
     styles: ['src/sass/*.scss'],
     fonts: 'src/**/*.woff',
-    images: ['src/images/**/*.jpg', 'src/images/**/*.gif']
+    images: ['src/images/**/*.jpg', 'src/images/**/*.jpeg', 'src/images/**/*.gif', 'src/images/**/*.png', 'src/images/**/*.svg']
 };
 // webpack
 gulp.task('webpack', function() {
     del(['dist/**/*.js']);
     return gulp.src('src/js/' + paths.scriptInit).pipe(webpack({
-        module : {
-            preLoaders: [
-                { test: /\.js$/, loader: 'jsx-loader?stripTypes' }
-            ],
-            loaders: [
-                { test: /\.js$/, loader: 'jshint-loader' }
-            ]
+       module : {
+            preLoaders: [{
+                test: /\.js$/,
+                loader: 'jsx-loader?stripTypes',
+                exclude: /node_modules/
+            }],
+            loaders: [{
+                test: /\.js$/,
+                loader: 'jshint-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                loader: '6to5-loader',
+                exclude: /node_modules/
+            }]
         },
         context: __dirname + '/src',
         devtool: '#source-map',
