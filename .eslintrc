@@ -3,7 +3,9 @@
     "blockBindings": true,
     "forOf": true,
     "jsx": true,
-    "esnext": true
+    "esnext": true,
+    "radix": true,
+    "new-cap": true
   },
   "rules": {
     "semi": 2

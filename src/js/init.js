@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import * as immutable from 'immutable';
 
 export class Hello extends React.Component {
     render() {

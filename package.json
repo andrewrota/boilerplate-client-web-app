@@ -39,6 +39,7 @@
     "eslint-loader": "git://github.com/andrewrota/eslint-loader.git#es6jsx"
   },
   "dependencies": {
-    "react": "^0.13.0-beta.1"
+    "react": "^0.13.0-beta.1",
+    "immutable": "^3.6.2"
   }
 }
