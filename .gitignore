@@ -32,3 +32,8 @@ bower_components
 
 # Dist
 dist
+
+# Other
+.idea
+.sass-cache
+*.iml

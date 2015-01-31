@@ -1,7 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass');
 var del = require('del');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -9,7 +9,6 @@ var rename = require('gulp-rename');
 var gutil = require('gulp-util');
 var webpack = require('gulp-webpack');
 var stylish = require('jshint-stylish');
-var csslint = require('gulp-csslint');
 var scsslint = require('gulp-scss-lint');
 var minifyCSS = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
@@ -20,9 +19,9 @@ var paths = {
     html: ['src/**/*.html'],
     scripts: ['src/js/*.js'],
     scriptInit: 'init.js',
-    styles: ['src/sass/*.scss'],
+    styles: 'src/sass/*.scss',
     fonts: 'src/**/*.woff',
-    images: ['src/images/**/*.jpg', 'src/images/**/*.jpeg', 'src/images/**/*.gif', 'src/images/**/*.png', 'src/images/**/*.svg']
+    images: ['src/images/**/*']
 };
 // webpack
 gulp.task('webpack', function() {
@@ -80,8 +79,6 @@ gulp.task('sass', function() {
             .pipe(scsslint())
             .pipe(sourcemaps.init())
             .pipe(sass())
-            .pipe(csslint())
-            .pipe(csslint.reporter())
             .pipe(minifyCSS())
             .pipe(sourcemaps.write('../maps'))
             .pipe(gulp.dest('dist/css/'));

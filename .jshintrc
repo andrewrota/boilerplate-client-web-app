@@ -14,7 +14,7 @@
     "nonbsp"        : true,
     "nonew"         : false,
     "plusplus"      : false,
-    "quotmark"      : "single",
+    "quotmark"      : true,
     "strict"        : true,
     "browser"       : true,
     "browserify"    : true,
