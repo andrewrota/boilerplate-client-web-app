@@ -31,12 +31,7 @@ gulp.task('webpack', function() {
             loaders: [
                 {
                     test: /\.js$/,
-                    loader: '6to5-loader?blacklist=react',
-                    exclude: /node_modules/
-                },
-                {
-                    test: /\.js$/,
-                    loader: 'jsx-loader',
+                    loader: '6to5-loader',
                     exclude: /node_modules/
                 }
             ]
