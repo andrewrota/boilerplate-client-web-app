@@ -28,21 +28,18 @@ gulp.task('webpack', function() {
     del(['dist/**/*.js']);
     return gulp.src('src/js/' + paths.scriptInit).pipe(webpack({
        module : {
-            preLoaders: [{
-                test: /\.js$/,
-                loader: 'jsx-loader?stripTypes',
-                exclude: /node_modules/
-            }],
-            loaders: [{
-                test: /\.js$/,
-                loader: 'jshint-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.js$/,
-                loader: '6to5-loader',
-                exclude: /node_modules/
-            }]
+            loaders: [
+                {
+                    test: /\.js$/,
+                    loader: '6to5-loader?blacklist=react',
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.js$/,
+                    loader: 'jsx-loader',
+                    exclude: /node_modules/
+                }
+            ]
         },
         context: __dirname + '/src',
         devtool: '#source-map',
