@@ -37,7 +37,7 @@
         loaders: [
           {
             test: /\.jsx?$/,
-            loader: '6to5-loader?experimental&optional=selfContained',
+            loader: 'babel-loader?experimental&optional=selfContained',
             exclude: /node_modules/
           }
         ]
