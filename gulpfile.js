@@ -37,7 +37,7 @@
         loaders: [
           {
             test: /\.jsx?$/,
-            loader: 'babel-loader?experimental&optional=selfContained',
+            loader: 'babel-loader?playground&optional=selfContained',
             exclude: /node_modules/
           }
         ]
